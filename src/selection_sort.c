@@ -6,13 +6,12 @@
 /*   By: shogura <shogura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 21:13:15 by shogura           #+#    #+#             */
-/*   Updated: 2022/06/03 17:47:51 by shogura          ###   ########.fr       */
+/*   Updated: 2022/06/03 21:35:37 by shogura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-// Find the list of minimum index
 t_stack	*find_min_index_list(t_stack *stack)
 {
 	t_stack	*minlst;
@@ -27,10 +26,39 @@ t_stack	*find_min_index_list(t_stack *stack)
 	return (minlst);
 }
 
+void	index_is_top_or_last(t_stack *stack, int index, bool *top)
+{
+	int		count1;
+	int		count2;
+	t_stack	*last;
+
+	count1 = 0;
+	count2 = 0;
+	last = lstlast(stack);
+	while (stack)
+	{
+		if (stack->index == index)
+			break;
+		count1++;
+		stack = stack->next;
+	}
+	while (last)
+	{
+		if (last->index == index)
+			break;
+		count2++;
+		last = last->previous;
+	}
+	if (count1 > count2)
+		*top = true;
+	else
+		*top = false;
+}
+
 void	move_minlst_to_top(t_stack **stack_a, int index)
 {
 	while (*stack_a != NULL && (*stack_a)->index != index)
-		ra(stack_a, false);
+			ra(stack_a, false);
 }
 
 void	push_to_stack_a(t_stack **stack_a, t_stack **stack_b, int len)

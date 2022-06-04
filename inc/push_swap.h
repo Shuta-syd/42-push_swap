@@ -6,7 +6,7 @@
 /*   By: shogura <shogura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 17:48:07 by shogura           #+#    #+#             */
-/*   Updated: 2022/06/03 18:42:14 by shogura          ###   ########.fr       */
+/*   Updated: 2022/06/03 23:15:49 by shogura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void	error_argv(int pattern);
 
 //others
 void	print_stack(t_stack *stack);
+void	set_index_minus(t_stack **stack);
 void	set_index(t_stack **stack, int len);
 void	push_to_stack_a(t_stack **stack_a, t_stack **stack_b, int len);
 bool	is_sorted(t_stack *stack);

@@ -6,7 +6,7 @@
 /*   By: shogura <shogura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 16:23:25 by shogura           #+#    #+#             */
-/*   Updated: 2022/06/03 17:48:54 by shogura          ###   ########.fr       */
+/*   Updated: 2022/06/03 21:30:49 by shogura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,13 @@ void	rra(t_stack **stack, bool both)
 
 	top = lstfisrt(*stack);
 	last = lstlast(*stack);
+	*stack = last;
+	last->previous->next = NULL;
+	(*stack)->previous = NULL;
 	top->previous = last;
-	top->next = NULL;
 	last->next = top;
 	if (!both)
-		ft_putstr("ra\n");
+		ft_putstr("rra\n");
 }
 
 void	rrb(t_stack **stack, bool both)
@@ -33,11 +35,12 @@ void	rrb(t_stack **stack, bool both)
 
 	top = lstfisrt(*stack);
 	last = lstlast(*stack);
+	*stack = last;
+	(*stack)->previous = NULL;
 	top->previous = last;
-	top->next = NULL;
 	last->next = top;
 	if (!both)
-		ft_putstr("ra\n");
+		ft_putstr("rrb\n");
 }
 
 void	rrr(t_stack **stack_a, t_stack **stack_b)

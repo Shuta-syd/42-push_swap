@@ -6,7 +6,7 @@
 /*   By: shogura <shogura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 21:16:22 by shogura           #+#    #+#             */
-/*   Updated: 2022/06/03 17:46:22 by shogura          ###   ########.fr       */
+/*   Updated: 2022/06/03 23:16:47 by shogura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,17 @@ void	set_index(t_stack **stack, int len)
 		}
 		min_list->index = i;
 		i++;
+	}
+}
+
+void	set_index_minus(t_stack **stack)
+{
+	t_stack	*tmp;
+
+	while (tmp)
+	{
+		tmp->index = -1;
+		tmp = tmp->next;
 	}
 }
 
