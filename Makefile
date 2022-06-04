@@ -6,13 +6,13 @@
 #    By: shogura <shogura@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/25 17:46:58 by shogura           #+#    #+#              #
-#    Updated: 2022/06/04 17:40:00 by shogura          ###   ########.fr        #
+#    Updated: 2022/06/04 18:03:50 by shogura          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
-CFLAG = #-g -Wall -Wextra -Werror
+CFLAG = -g -Wall -Wextra -Werror
 
 LIBFT = src/libft/libft.a
 
