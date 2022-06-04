@@ -6,7 +6,7 @@
 /*   By: shogura <shogura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 15:47:01 by shogura           #+#    #+#             */
-/*   Updated: 2022/06/04 16:46:25 by shogura          ###   ########.fr       */
+/*   Updated: 2022/06/04 18:07:52 by shogura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,10 @@ char const	**split_args(const char *argv[])
 	len = 1;
 	nums = (char const **)ft_split(argv[1], ' ');
 	if (nums == NULL)
+	{
 		fail_to_allocate_mem(NULL);
+		return (NULL);
+	}
 	while (nums[i++])
 		len++;
 	if (len < 2)
