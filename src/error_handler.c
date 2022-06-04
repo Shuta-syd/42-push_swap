@@ -6,7 +6,7 @@
 /*   By: shogura <shogura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 16:22:09 by shogura           #+#    #+#             */
-/*   Updated: 2022/06/03 18:04:35 by shogura          ###   ########.fr       */
+/*   Updated: 2022/06/04 16:25:55 by shogura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	fail_to_allocate_mem(t_stack **stack)
 {
-	while (*stack)
+	while (stack && *stack)
 	{
 		free(*stack);
 		*stack = (*stack)->previous;

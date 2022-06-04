@@ -6,7 +6,7 @@
 /*   By: shogura <shogura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 21:16:22 by shogura           #+#    #+#             */
-/*   Updated: 2022/06/04 15:34:45 by shogura          ###   ########.fr       */
+/*   Updated: 2022/06/04 15:50:26 by shogura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,12 @@ int	find_mid_point(t_stack *stack, int low, int high)
 
 	sum = 0;
 	size = high - low;
-	while (low < high && stack)
+	while (low++ < high && stack)
 	{
 		sum += stack->index;
 		stack = stack->next;
 	}
-	return (sum / (high - low));
+	return (sum / size);
 }
 
 bool	is_sorted(t_stack *stack)

@@ -6,7 +6,7 @@
 /*   By: shogura <shogura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 16:59:08 by shogura           #+#    #+#             */
-/*   Updated: 2022/06/03 12:12:35 by shogura          ###   ########.fr       */
+/*   Updated: 2022/06/04 15:45:16 by shogura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int	ft_isnum(char const *str)
 {
 	if (*str == '-')
 		str++;
+	else if (*str == '\0')
+		return (0);
 	while (*str)
 	{
 		if (!ft_isdigit(*str++))

@@ -6,7 +6,7 @@
 /*   By: shogura <shogura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 17:48:07 by shogura           #+#    #+#             */
-/*   Updated: 2022/06/03 23:15:49 by shogura          ###   ########.fr       */
+/*   Updated: 2022/06/04 16:35:38 by shogura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,11 @@ typedef struct s_stack
 	struct s_stack		*previous;
 }	t_stack;
 
-void	scan_args(int argc, char const *argv[]);
-
 //list operations
 t_stack	*lstnew(int num, int index);
 t_stack	*lstlast(t_stack *lst);
 t_stack	*lstfisrt(t_stack *stack);
 int		lstsize(t_stack *stack);
-void	lstdelone(t_stack **lst);
 void	lstadd_front(t_stack **lst, t_stack *new);
 void	lstadd_back(t_stack **lst, t_stack *new);
 
@@ -59,6 +56,7 @@ void	radix_sort(t_stack **stack_a, t_stack **stack_b, int len);
 // error handler
 void	fail_to_allocate_mem(t_stack **stack);
 void	error_argv(int pattern);
+void	free_nums(void **nums);
 
 //others
 void	print_stack(t_stack *stack);
@@ -67,4 +65,8 @@ void	set_index(t_stack **stack, int len);
 void	push_to_stack_a(t_stack **stack_a, t_stack **stack_b, int len);
 bool	is_sorted(t_stack *stack);
 int		find_mid_point(t_stack *stack, int low, int high);
+bool	check_dup(int len, char const **str, char const *src);
+bool	check_min_max(long num);
+char const	**split_args(const char *argv[]);
+char const	**scan_args(int argc, char const *argv[]);
 #endif

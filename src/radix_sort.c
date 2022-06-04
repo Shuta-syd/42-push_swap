@@ -6,13 +6,13 @@
 /*   By: shogura <shogura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 16:46:51 by shogura           #+#    #+#             */
-/*   Updated: 2022/06/03 17:37:02 by shogura          ###   ########.fr       */
+/*   Updated: 2022/06/04 15:50:52 by shogura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-int	maxbit_digits(t_stack *stack, int len)
+int	maxbit_digits(t_stack *stack)
 {
 	int	max;
 	int	digits;
@@ -40,7 +40,7 @@ void	radix_sort(t_stack **stack_a, t_stack **stack_b, int len)
 	int	count;
 
 	i = 0;
-	while (i < maxbit_digits(*stack_a, len))
+	while (i < maxbit_digits(*stack_a))
 	{
 		j = 0;
 		count = 0;
