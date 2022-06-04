@@ -6,17 +6,19 @@
 /*   By: shogura <shogura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 21:41:40 by shogura           #+#    #+#             */
-/*   Updated: 2022/06/04 14:45:05 by shogura          ###   ########.fr       */
+/*   Updated: 2022/06/04 15:35:16 by shogura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
+//DELETE
 void	print_stack(t_stack *stack)
 {
 	while (stack)
 	{
-		printf("index->[%d] num->[%d]\n", stack->index, stack->num);
+		printf("index->[%d] num->[%d] ", stack->index, stack->num);
+		printf("me->[%p] next->[%p] prev->[%p]\n", stack, stack->next, stack->previous);
 		stack = stack->next;
 	}
 	printf("\n");
@@ -28,8 +30,8 @@ void	elem3_sort(t_stack **stack)
 	{
 		if ((*stack)->index == 1 && (*stack)->next->index == 0)
 			sa(stack, false);
-		else if (((*stack)->index == 0 && (*stack)->next->index == 2) ||
-			((*stack)->index == 1 && (*stack)->next->index == 2))
+		else if (((*stack)->index == 0 && (*stack)->next->index == 2)
+			|| ((*stack)->index == 1 && (*stack)->next->index == 2))
 			rra(stack, false);
 		else
 			ra(stack, false);
@@ -39,7 +41,7 @@ void	elem3_sort(t_stack **stack)
 void	elem5_sort(t_stack **stack_a, t_stack **stack_b, int len)
 {
 	int		mid;
-	int	count;
+	int		count;
 
 	count = 2;
 	mid = find_mid_point(*stack_a, 0, len);
@@ -50,19 +52,18 @@ void	elem5_sort(t_stack **stack_a, t_stack **stack_b, int len)
 			pb(stack_a, stack_b);
 			count--;
 		}
-		ra(stack_a, false);
+		else
+			ra(stack_a, false);
 	}
-	set_index_minus(stack_a);
 	set_index(stack_a, len - 2);
 	elem3_sort(stack_a);
-	// if ((*stack_b)->index < (*stack_b)->next->index)
-	// 	sb(stack_b, false);
-	// while (*stack_b)
-	// 	pa(stack_a, stack_b);
-	// set_index_minus(stack_a);
-	// set_index(stack_a, len);
-	// while (!is_sorted(*stack_a))
-	// 	ra(stack_a, false);
+	if ((*stack_b)->index < (*stack_b)->next->index)
+		sb(stack_b, false);
+	while (*stack_b)
+		pa(stack_a, stack_b);
+	set_index(stack_a, len);
+	while (!is_sorted(*stack_a))
+		ra(stack_a, false);
 }
 
 void	sort_stack(t_stack **stack_a, t_stack **stack_b)

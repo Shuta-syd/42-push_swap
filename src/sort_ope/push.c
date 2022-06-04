@@ -6,7 +6,7 @@
 /*   By: shogura <shogura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 16:23:21 by shogura           #+#    #+#             */
-/*   Updated: 2022/06/03 11:42:51 by shogura          ###   ########.fr       */
+/*   Updated: 2022/06/04 15:10:59 by shogura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,17 +41,16 @@ void	pb(t_stack **stack_a, t_stack **stack_b)
 
 	top_a = lstfisrt(*stack_a);
 	top_b = lstfisrt(*stack_b);
-	*stack_a = top_a->next;
 	*stack_b = top_a;
-	if (top_a->next != NULL)
-		top_a->next->previous = NULL;
-	top_a->previous = NULL;
+	*stack_a = top_a->next;
+	(*stack_a)->previous = NULL;
+	(*stack_b)->previous = NULL;
 	if (top_b == NULL)
-		top_a->next = NULL;
+		(*stack_b)->next = NULL;
 	else
 	{
-		top_a->next = top_b;
-		top_b->previous = top_a;
+		(*stack_b)->next = top_b;
+		top_b->previous = *stack_b;
 	}
 	ft_putstr("pb\n");
 }

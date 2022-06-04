@@ -6,7 +6,7 @@
 /*   By: shogura <shogura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 21:13:15 by shogura           #+#    #+#             */
-/*   Updated: 2022/06/03 21:35:37 by shogura          ###   ########.fr       */
+/*   Updated: 2022/06/04 15:33:22 by shogura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,14 @@ void	index_is_top_or_last(t_stack *stack, int index, bool *top)
 	while (stack)
 	{
 		if (stack->index == index)
-			break;
+			break ;
 		count1++;
 		stack = stack->next;
 	}
 	while (last)
 	{
 		if (last->index == index)
-			break;
+			break ;
 		count2++;
 		last = last->previous;
 	}
@@ -58,7 +58,7 @@ void	index_is_top_or_last(t_stack *stack, int index, bool *top)
 void	move_minlst_to_top(t_stack **stack_a, int index)
 {
 	while (*stack_a != NULL && (*stack_a)->index != index)
-			ra(stack_a, false);
+		ra(stack_a, false);
 }
 
 void	push_to_stack_a(t_stack **stack_a, t_stack **stack_b, int len)

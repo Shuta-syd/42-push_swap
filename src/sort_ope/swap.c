@@ -6,7 +6,7 @@
 /*   By: shogura <shogura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 16:23:17 by shogura           #+#    #+#             */
-/*   Updated: 2022/06/04 00:12:59 by shogura          ###   ########.fr       */
+/*   Updated: 2022/06/04 15:18:12 by shogura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,11 @@ void	sa(t_stack **stack, bool both)
 
 	tmp = *stack;
 	*stack = (*stack)->next;
+	(*stack)->previous = NULL;
 	tmp->next = (*stack)->next;
+	(*stack)->next = tmp;
 	if ((*stack)->next)
 		(*stack)->next->previous = tmp;
-	tmp->previous = *stack;
-	(*stack)->next = tmp;
-	(*stack)->next->previous = tmp;
 	if (!both)
 		ft_putstr("sa\n");
 }
@@ -34,12 +33,11 @@ void	sb(t_stack **stack, bool both)
 
 	tmp = *stack;
 	*stack = (*stack)->next;
-	tmp->previous = *stack;
-	if ((*stack)->next)
-		(*stack)->next->previous = tmp;
-	(*stack)->next = tmp;
 	(*stack)->previous = NULL;
 	tmp->next = (*stack)->next;
+	(*stack)->next = tmp;
+	if ((*stack)->next)
+		(*stack)->next->previous = tmp;
 	if (!both)
 		ft_putstr("sb\n");
 }
