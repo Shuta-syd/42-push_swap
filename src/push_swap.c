@@ -6,7 +6,7 @@
 /*   By: shogura <shogura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 17:48:05 by shogura           #+#    #+#             */
-/*   Updated: 2022/06/04 18:08:40 by shogura          ###   ########.fr       */
+/*   Updated: 2022/06/04 18:13:31 by shogura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,10 @@ int	main(int argc, char const *argv[])
 {
 	t_stack		*stack_a;
 	t_stack		*stack_b;
-	bool		split;
 	char const	**nums;
 
 	stack_a = NULL;
 	stack_b = NULL;
-	split = false;
 	nums = scan_args(argc, argv);
 	if (nums == NULL)
 		return (0);
@@ -68,7 +66,6 @@ int	main(int argc, char const *argv[])
 	else
 	{
 		argc = 0;
-		split = true;
 		while (nums[argc])
 			argc++;
 		push_argv_to_stack(argc, nums, &stack_a);
