@@ -6,19 +6,21 @@
 /*   By: shogura <shogura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 17:48:05 by shogura           #+#    #+#             */
-/*   Updated: 2022/06/04 16:36:12 by shogura          ###   ########.fr       */
+/*   Updated: 2022/06/04 18:00:28 by shogura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-void	free_all(t_stack **stack, char const **nums)
+void	free_stack(t_stack **stack)
 {
-	free_nums((void **)nums);
-	while (stack && *stack)
+	t_stack	*tmp;
+
+	while (*stack)
 	{
+		tmp = (*stack)->next;
 		free(*stack);
-		*stack = (*stack)->previous;
+		*stack = tmp;
 	}
 }
 
@@ -50,15 +52,27 @@ void	push_argv_to_stack(int len, char const *src[], t_stack **stack)
 
 int	main(int argc, char const *argv[])
 {
-	t_stack	*stack_a;
-	t_stack	*stack_b;
+	t_stack		*stack_a;
+	t_stack		*stack_b;
+	bool		split;
 	char const	**nums;
 
 	stack_a = NULL;
 	stack_b = NULL;
+	split = false;
 	nums = scan_args(argc, argv);
-	push_argv_to_stack(argc - 1, &nums[1], &stack_a);
+	if (nums == argv)
+		push_argv_to_stack(argc - 1, &nums[1], &stack_a);
+	else
+	{
+		argc = 0;
+		split = true;
+		while (nums[argc])
+			argc++;
+		push_argv_to_stack(argc, nums, &stack_a);
+		free_nums((void **)nums);
+	}
 	sort_stack(&stack_a, &stack_b);
-	free_all(&stack_a, nums);
+	free_stack(&stack_a);
 	return (0);
 }

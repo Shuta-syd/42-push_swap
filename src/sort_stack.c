@@ -6,23 +6,27 @@
 /*   By: shogura <shogura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 21:41:40 by shogura           #+#    #+#             */
-/*   Updated: 2022/06/04 15:35:16 by shogura          ###   ########.fr       */
+/*   Updated: 2022/06/04 18:01:13 by shogura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
 //DELETE
+/*
 void	print_stack(t_stack *stack)
 {
 	while (stack)
 	{
-		printf("index->[%d] num->[%d] ", stack->index, stack->num);
-		printf("me->[%p] next->[%p] prev->[%p]\n", stack, stack->next, stack->previous);
+		printf("index->[%d] num->[%d]
+		 ", stack->index, stack->num);
+		printf("me->[%p] next->[%p]
+		prev->[%p]\n", stack, stack->next, stack->previous);
 		stack = stack->next;
 	}
 	printf("\n");
 }
+*/
 
 void	elem3_sort(t_stack **stack)
 {

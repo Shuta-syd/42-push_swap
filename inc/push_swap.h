@@ -6,7 +6,7 @@
 /*   By: shogura <shogura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 17:48:07 by shogura           #+#    #+#             */
-/*   Updated: 2022/06/04 16:35:38 by shogura          ###   ########.fr       */
+/*   Updated: 2022/06/04 18:02:28 by shogura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,45 +28,45 @@ typedef struct s_stack
 }	t_stack;
 
 //list operations
-t_stack	*lstnew(int num, int index);
-t_stack	*lstlast(t_stack *lst);
-t_stack	*lstfisrt(t_stack *stack);
-int		lstsize(t_stack *stack);
-void	lstadd_front(t_stack **lst, t_stack *new);
-void	lstadd_back(t_stack **lst, t_stack *new);
+t_stack		*lstnew(int num, int index);
+t_stack		*lstlast(t_stack *lst);
+t_stack		*lstfisrt(t_stack *stack);
+int			lstsize(t_stack *stack);
+void		lstadd_front(t_stack **lst, t_stack *new);
+void		lstadd_back(t_stack **lst, t_stack *new);
 
 //sort operations
-void	sa(t_stack **stack, bool both);
-void	sb(t_stack **stack, bool both);
-void	ss(t_stack **stack_a, t_stack **stack_b);
-void	pa(t_stack **stack_a, t_stack **stack_b);
-void	pb(t_stack **stack_a, t_stack **stack_b);
-void	ra(t_stack **stack, bool both);
-void	rb(t_stack **stack, bool both);
-void	rr(t_stack **stack_a, t_stack **stack_b);
-void	rra(t_stack **stack, bool both);
-void	rrb(t_stack **stack, bool both);
-void	rrr(t_stack **stack_a, t_stack **stack_b);
+void		sa(t_stack **stack, bool both);
+void		sb(t_stack **stack, bool both);
+void		ss(t_stack **stack_a, t_stack **stack_b);
+void		pa(t_stack **stack_a, t_stack **stack_b);
+void		pb(t_stack **stack_a, t_stack **stack_b);
+void		ra(t_stack **stack, bool both);
+void		rb(t_stack **stack, bool both);
+void		rr(t_stack **stack_a, t_stack **stack_b);
+void		rra(t_stack **stack, bool both);
+void		rrb(t_stack **stack, bool both);
+void		rrr(t_stack **stack_a, t_stack **stack_b);
 
 // sort functions
-void	sort_stack(t_stack **stack_a, t_stack **stack_b);
-void	selection_sort(t_stack **stack_a, t_stack **stack_b, int len);
-void	radix_sort(t_stack **stack_a, t_stack **stack_b, int len);
+void		sort_stack(t_stack **stack_a, t_stack **stack_b);
+void		selection_sort(t_stack **stack_a, t_stack **stack_b, int len);
+void		radix_sort(t_stack **stack_a, t_stack **stack_b, int len);
 
 // error handler
-void	fail_to_allocate_mem(t_stack **stack);
-void	error_argv(int pattern);
-void	free_nums(void **nums);
+void		fail_to_allocate_mem(t_stack **stack);
+void		error_argv(int pattern);
 
 //others
-void	print_stack(t_stack *stack);
-void	set_index_minus(t_stack **stack);
-void	set_index(t_stack **stack, int len);
-void	push_to_stack_a(t_stack **stack_a, t_stack **stack_b, int len);
-bool	is_sorted(t_stack *stack);
-int		find_mid_point(t_stack *stack, int low, int high);
-bool	check_dup(int len, char const **str, char const *src);
-bool	check_min_max(long num);
+void		print_stack(t_stack *stack);
+void		set_index_minus(t_stack **stack);
+void		set_index(t_stack **stack, int len);
+void		push_to_stack_a(t_stack **stack_a, t_stack **stack_b, int len);
+bool		is_sorted(t_stack *stack);
+int			find_mid_point(t_stack *stack, int low, int high);
+bool		check_dup(int len, char const **str, char const *src);
+bool		check_min_max(long num);
+void		free_nums(void **nums);
 char const	**split_args(const char *argv[]);
 char const	**scan_args(int argc, char const *argv[]);
 #endif

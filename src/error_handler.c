@@ -6,7 +6,7 @@
 /*   By: shogura <shogura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 16:22:09 by shogura           #+#    #+#             */
-/*   Updated: 2022/06/04 16:25:55 by shogura          ###   ########.fr       */
+/*   Updated: 2022/06/04 17:57:29 by shogura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,13 @@
 
 void	fail_to_allocate_mem(t_stack **stack)
 {
+	t_stack	*tmp;
+
 	while (stack && *stack)
 	{
+		tmp = (*stack)->previous;
 		free(*stack);
-		*stack = (*stack)->previous;
+		*stack = tmp;
 	}
 	ft_putstr("ERROR\nFailed to malloc mem");
 	return ;

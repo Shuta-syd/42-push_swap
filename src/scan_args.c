@@ -6,7 +6,7 @@
 /*   By: shogura <shogura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 17:47:29 by shogura           #+#    #+#             */
-/*   Updated: 2022/06/04 16:23:26 by shogura          ###   ########.fr       */
+/*   Updated: 2022/06/04 16:47:04 by shogura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ bool	check_min_max(long num)
 }
 
 // check args error
-char const **scan_args(int argc, char const *argv[])
+char const	**scan_args(int argc, char const *argv[])
 {
 	int	i;
 

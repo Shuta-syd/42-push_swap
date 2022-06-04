@@ -6,7 +6,7 @@
 /*   By: shogura <shogura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 15:47:01 by shogura           #+#    #+#             */
-/*   Updated: 2022/06/04 16:35:26 by shogura          ###   ########.fr       */
+/*   Updated: 2022/06/04 16:46:25 by shogura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,23 +31,23 @@ static void	scan_nums(int len, char const *nums[])
 	{
 		if (!check_min_max(ft_atol(nums[i])) || !ft_isnum(nums[i])
 			|| check_dup(len - 1, &nums[1], nums[i]))
-			{
-				free_nums((void **)nums);
-				error_argv(3);
-			}
+		{
+			free_nums((void **)nums);
+			error_argv(3);
+		}
 		i++;
 	}
 }
 
 char const	**split_args(const char *argv[])
 {
-	int		i;
-	int		len;
+	int			i;
+	int			len;
 	char const	**nums;
 
 	i = 0;
 	len = 1;
-	nums = (char const**)ft_split(argv[1], ' ');
+	nums = (char const **)ft_split(argv[1], ' ');
 	if (nums == NULL)
 		fail_to_allocate_mem(NULL);
 	while (nums[i++])
