@@ -6,7 +6,7 @@
 /*   By: shogura <shogura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 17:47:29 by shogura           #+#    #+#             */
-/*   Updated: 2022/06/04 16:47:04 by shogura          ###   ########.fr       */
+/*   Updated: 2022/06/07 16:29:38 by shogura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ char const	**scan_args(int argc, char const *argv[])
 
 	i = 1;
 	if (argc == 1)
-		error_argv(1);
+		exit(1);
 	else if (argc == 2)
 		return (split_args(argv));
 	while (i < argc)

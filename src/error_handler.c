@@ -6,7 +6,7 @@
 /*   By: shogura <shogura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 16:22:09 by shogura           #+#    #+#             */
-/*   Updated: 2022/06/04 17:57:29 by shogura          ###   ########.fr       */
+/*   Updated: 2022/06/07 16:46:39 by shogura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,15 @@ void	fail_to_allocate_mem(t_stack **stack)
 		free(*stack);
 		*stack = tmp;
 	}
-	ft_putstr("ERROR\nFailed to malloc mem");
-	return ;
+	ft_putstr_fd("ERROR\nFailed to malloc mem", 2);
+	exit(1);
 }
 
 void	error_argv(int pattern)
 {
 	if (pattern == 1)
-		ft_putstr("ERROR\nToo few args\n");
+		ft_putstr_fd("ERROR\nToo few args\n", 2);
 	else if (pattern == 2)
-		ft_putstr("ERROR\nargs aren't int or duplicate num\n");
+		ft_putstr_fd("ERROR\nNot int type or duplicate\n", 2);
 	exit(1);
 }

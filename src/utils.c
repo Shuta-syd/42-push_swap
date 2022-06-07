@@ -6,7 +6,7 @@
 /*   By: shogura <shogura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 21:16:22 by shogura           #+#    #+#             */
-/*   Updated: 2022/06/04 15:50:26 by shogura          ###   ########.fr       */
+/*   Updated: 2022/06/07 16:47:53 by shogura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	set_index(t_stack **stack, int len)
 		min = INT_MAX;
 		while (tmp)
 		{
-			if (tmp->num < min && tmp->index == -1)
+			if (tmp->num <= min && tmp->index == -1)
 			{
 				min = tmp->num;
 				min_list = tmp;

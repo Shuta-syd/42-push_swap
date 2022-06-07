@@ -6,7 +6,7 @@
 /*   By: shogura <shogura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 17:48:05 by shogura           #+#    #+#             */
-/*   Updated: 2022/06/04 18:13:31 by shogura          ###   ########.fr       */
+/*   Updated: 2022/06/07 16:51:39 by shogura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	push_argv_to_stack(int len, char const *src[], t_stack **stack)
 	tmp = NULL;
 	while (i < len)
 	{
-		*stack = lstnew(atoi(src[i]), -1);
+		*stack = lstnew(ft_atoi(src[i]), -1);
 		if (*stack == NULL)
 			fail_to_allocate_mem(&tmp);
 		if (i == 0)

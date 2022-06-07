@@ -6,17 +6,17 @@
 #    By: shogura <shogura@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/25 17:46:58 by shogura           #+#    #+#              #
-#    Updated: 2022/06/04 18:03:50 by shogura          ###   ########.fr        #
+#    Updated: 2022/06/07 16:49:48 by shogura          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
-CFLAG = -g -Wall -Wextra -Werror
+CFLAGS = -g -Wall -Wextra -Werror
 
 LIBFT = src/libft/libft.a
 
-INC = inc/
+INC = ./inc/
 
 SRC_FILES = push_swap.c scan_args.c sort_stack.c error_handler.c utils.c selection_sort.c radix_sort.c split_args.c
 SORT_FILES = push.c rotate.c reverse_rotate.c swap.c
@@ -29,12 +29,13 @@ SRC = ${addprefix src/, ${SRC_FILES} ${SORT_OPE} ${LIST_OPE}}
 
 OBJS = ${SRC:.c=.o}
 
-NR = norminette -R CheckForbiddenSourceHeader
-
 all: ${NAME}
 
-${NAME}:${SRC} ${LIBFT}
-	${CC} ${CFLAG} -I${INC} -o $@ ${SRC} ${LIBFT}
+${NAME}:${OBJS} ${LIBFT}
+	${CC} ${CFLAGS} -o $@ ${OBJS} ${LIBFT}
+
+.c.o:
+	${CC} ${CFLAGS} -I${INC} -c $< -o $@
 
 ${LIBFT}:
 	@make -C src/libft

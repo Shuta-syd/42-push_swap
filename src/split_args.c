@@ -6,7 +6,7 @@
 /*   By: shogura <shogura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 15:47:01 by shogura           #+#    #+#             */
-/*   Updated: 2022/06/04 18:07:52 by shogura          ###   ########.fr       */
+/*   Updated: 2022/06/07 16:45:25 by shogura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ static void	scan_nums(int len, char const *nums[])
 	while (i < len)
 	{
 		if (!check_min_max(ft_atol(nums[i])) || !ft_isnum(nums[i])
-			|| check_dup(len - 1, &nums[1], nums[i]))
+			|| check_dup(len, &nums[0], nums[i]))
 		{
 			free_nums((void **)nums);
-			error_argv(3);
+			error_argv(2);
 		}
 		i++;
 	}
@@ -41,25 +41,20 @@ static void	scan_nums(int len, char const *nums[])
 
 char const	**split_args(const char *argv[])
 {
-	int			i;
 	int			len;
 	char const	**nums;
 
-	i = 0;
-	len = 1;
+	len = 0;
 	nums = (char const **)ft_split(argv[1], ' ');
 	if (nums == NULL)
-	{
 		fail_to_allocate_mem(NULL);
-		return (NULL);
-	}
-	while (nums[i++])
-		len++;
-	if (len < 2)
+	else if (!ft_isnum(nums[0]))
 	{
 		free_nums((void **)nums);
-		error_argv(1);
+		error_argv(2);
 	}
-	scan_nums(len - 1, nums);
+	while (nums[len])
+		len++;
+	scan_nums(len, nums);
 	return (nums);
 }
