@@ -6,7 +6,7 @@
 /*   By: shogura <shogura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 21:16:22 by shogura           #+#    #+#             */
-/*   Updated: 2022/06/07 16:47:53 by shogura          ###   ########.fr       */
+/*   Updated: 2022/06/11 09:13:05 by shogura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,25 @@ bool	is_sorted(t_stack *stack)
 	{
 		if (stack->index > stack->next->index)
 			return (false);
+		stack = stack->next;
+	}
+	return (true);
+}
+
+bool	check_dup(t_stack *stack)
+{
+	t_stack	*tmp;
+
+	tmp = stack->next;
+	while (stack->next)
+	{
+		while (tmp)
+		{
+			if (tmp->num == stack->num)
+				return (false);
+			tmp = tmp->next;
+		}
+		tmp = stack->next->next;
 		stack = stack->next;
 	}
 	return (true);

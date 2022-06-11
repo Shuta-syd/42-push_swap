@@ -6,7 +6,7 @@
 /*   By: shogura <shogura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 17:48:07 by shogura           #+#    #+#             */
-/*   Updated: 2022/06/04 18:02:28 by shogura          ###   ########.fr       */
+/*   Updated: 2022/06/10 22:42:27 by shogura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void		set_index(t_stack **stack, int len);
 void		push_to_stack_a(t_stack **stack_a, t_stack **stack_b, int len);
 bool		is_sorted(t_stack *stack);
 int			find_mid_point(t_stack *stack, int low, int high);
-bool		check_dup(int len, char const **str, char const *src);
+bool		check_dup(t_stack *stack);
 bool		check_min_max(long num);
 void		free_nums(void **nums);
 char const	**split_args(const char *argv[]);

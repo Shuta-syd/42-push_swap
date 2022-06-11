@@ -6,7 +6,7 @@
 /*   By: shogura <shogura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 15:47:01 by shogura           #+#    #+#             */
-/*   Updated: 2022/06/07 16:45:25 by shogura          ###   ########.fr       */
+/*   Updated: 2022/06/10 22:39:24 by shogura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,7 @@ static void	scan_nums(int len, char const *nums[])
 	i = 0;
 	while (i < len)
 	{
-		if (!check_min_max(ft_atol(nums[i])) || !ft_isnum(nums[i])
-			|| check_dup(len, &nums[0], nums[i]))
+		if (!check_min_max(ft_atol(nums[i])) || !ft_isnum(nums[i]))
 		{
 			free_nums((void **)nums);
 			error_argv(2);

@@ -6,7 +6,7 @@
 /*   By: shogura <shogura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 21:41:40 by shogura           #+#    #+#             */
-/*   Updated: 2022/06/04 18:01:13 by shogura          ###   ########.fr       */
+/*   Updated: 2022/06/11 09:14:15 by shogura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,8 @@ void	print_stack(t_stack *stack)
 {
 	while (stack)
 	{
-		printf("index->[%d] num->[%d]
-		 ", stack->index, stack->num);
-		printf("me->[%p] next->[%p]
-		prev->[%p]\n", stack, stack->next, stack->previous);
+		printf("index->[%d] num->[%d]", stack->index, stack->num);
+		printf(" me->[%p] next->[%p]	prev->[%p]\n", stack,stack->next, stack->previous);
 		stack = stack->next;
 	}
 	printf("\n");
@@ -74,6 +72,11 @@ void	sort_stack(t_stack **stack_a, t_stack **stack_b)
 {
 	int	len;
 
+	if (!check_dup(*stack_a))
+	{
+		ft_putstr_fd("ERROR\nNot int type or duplicate\n", 2);
+		return ;
+	}
 	len = lstsize(*stack_a);
 	set_index(stack_a, len);
 	if (is_sorted(*stack_a))

@@ -6,7 +6,7 @@
 /*   By: shogura <shogura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 17:48:05 by shogura           #+#    #+#             */
-/*   Updated: 2022/06/07 16:51:39 by shogura          ###   ########.fr       */
+/*   Updated: 2022/06/10 22:48:04 by shogura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	main(int argc, char const *argv[])
 	nums = scan_args(argc, argv);
 	if (nums == NULL)
 		return (0);
-	if (nums == argv)
+	else if (nums == argv)
 		push_argv_to_stack(argc - 1, &nums[1], &stack_a);
 	else
 	{
